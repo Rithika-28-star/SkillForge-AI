@@ -1,0 +1,40 @@
+﻿# requirements.txt
+# ============================================================
+# Python dependencies for the SkillForge AI backend.
+#
+# Install all of these with:
+#   pip install -r requirements.txt
+#
+# Each package has a comment explaining what it does.
+# ============================================================
+
+# --- Web Framework ---
+fastapi==0.115.12          # The web framework — handles HTTP requests and routing
+uvicorn[standard]==0.34.3  # ASGI server — runs the FastAPI app (like Node.js for Python)
+
+# --- Database ---
+sqlalchemy==2.0.41         # ORM — lets you work with PostgreSQL using Python objects
+psycopg2-binary==2.9.10    # PostgreSQL driver — the actual connector to PostgreSQL
+alembic==1.15.2            # Database migration tool — manages schema changes safely
+
+# --- Configuration ---
+pydantic==2.11.4           # Data validation — validates request/response data shapes
+pydantic-settings==2.9.1   # Reads .env files into Python settings classes
+
+# --- Security / Auth (used in Phase 2) ---
+python-jose[cryptography]==3.3.0  # JWT token encoding and decoding
+passlib[bcrypt]==1.7.4            # Password hashing (bcrypt is the gold standard)
+python-multipart==0.0.20          # Required for file uploads (resume PDF)
+
+# --- HTTP Client (for calling external APIs) ---
+httpx==0.28.1             # Async HTTP client — used to call LLM APIs in Phase 4
+
+# --- Testing ---
+pytest==8.3.5             # Test runner
+pytest-asyncio==0.26.0    # Async support for pytest
+httpx==0.28.1             # TestClient uses httpx under the hood
+
+# --- NLP (Phase 3 — not configured yet) ---
+# spacy==3.7.4            # Uncomment in Phase 3 for NLP resume parsing
+# python-docx==1.1.0      # Uncomment in Phase 3 to parse .docx resume files
+# PyMuPDF==1.24.2         # Uncomment in Phase 3 to parse PDF resume files
